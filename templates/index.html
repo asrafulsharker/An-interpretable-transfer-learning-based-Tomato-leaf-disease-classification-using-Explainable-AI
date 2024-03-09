@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Image Classification</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body style="font-family: 'Work Sans', sans-serif;">
+
+  <!-- nav start  -->
+<nav class="w-full z-50 bg-white text-black">
+  <div class="navbar bg-white text-white rounded mx-auto  container">
+    <div class="flex-1 ">
+      <a class="btn btn-ghost normal-case text-3xl font-bold text-black" >Green Leaf</a>
+    </div>
+    <div class="flex-none">
+      <ul class="menu menu-horizontal px-1 text-black">
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#ditect">Ditect Now</a></li>
+        <li><a href="#">Comming Soon</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <!-- nav end  -->
+
+
+  <!-- hero section start  -->
+
+  <div class="hero">
+    <div class="flex flex-col">
+      
+    </div>
+  </div>
+
+<!-- hero section end  -->
+  <!-- hero Section start  -->
+
+  <div class="hero min-h-screen bg-black" style="background-image: url(../static/davor-denkovski--qt_TCQxFrw-unsplash.jpg);">
+    <div class="hero-overlay bg-opacity-60"></div>
+    <div class="hero-content flex-col lg:flex-row ">
+      <img src="../static/00ce4c63-9913-4b16-898c-29f99acf0dc3___RS_Late.B 4982_flipLR.JPG" class="max-w-sm rounded-lg shadow-2xl" />
+      <div class="ml-10">
+        <h1 class="text-5xl font-bold text-white">Tomato Leaf Desease Detection!</h1>
+        <p class="py-6 text-white">Tomato leaves play a crucial role in the plant's health, as they enable photosynthesis and regulate transpiration. Changes in leaf color, shape, or texture can signify various diseases or nutrient deficiencies, requiring prompt attention for optimal plant growth. Understanding leaf characteristics is vital for diagnosing and addressing issues in tomato cultivation.</p>
+        <button class="btn btn-primary">Get Started</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- hero hero section end  -->
+  
+
+  <!-- ditection part -->
+
+   <!-- ditection part -->
+   <div class="ditection pt-10 pb-10" id="ditection">
+    <div class="card lg:card-side bg-base-100 shadow-xl container mx-auto">
+      <div class="card-body place-items-center">
+        <h2 class="card-title text-5xl">Leaf Desease Detection Detection</h2>
+        <p>Upload Your Image</p>
+        <form class="form-horizontal" action="/" method="post" enctype="multipart/form-data">
+          <input type="file" class="file-input file-input-bordered file-input-accent w-full max-w-xl form-control"  name="my_image" id="pwd"/>
+          <button class="btn btn-primary max-w-xl text-black w-full mt-5" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="place-items-center card lg:card-side bg-base-100 shadow-xl container mx-auto mt-30 pb-10 mb-10">
+    {% if predicted_class %}
+    <div class="flex flex-col w-full border-opacity-50 mx-auto place-items-center">
+      <img class="rounded-md mb-10" src="{{ url_for('static', filename=predicted_img_path) }}?{{ current_time }}" height="400px" width="400px">
+      <div class="grid card bg-green-500 rounded-box place-items-center text-2xl p-5 text-white">
+        <h2>Your Prediction: <i>{{ predicted_class }}</i> !</h2>
+      </div>
+      <div class="grid card bg-black rounded-box place-items-center text-2xl p-5 text-white mt-5">
+        <h2>{{ class_description }}</h2>
+      </div>
+      <div class="divider">AND</div>
+      <div class="grid card bg-violet-600 rounded-box place-items-center text-2xl p-5 text-white">
+        <h3>Confidence: {{ confidence }}%</h3>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- ditecttioin part end  -->
+
+
+
+
+
+
+</div>
+</body>
+</html>
